@@ -1,7 +1,7 @@
 {
   "name": "@dashevo/grpc-common",
   "version": "0.1.0",
-  "description": "Common GRPC code for Dash Platform projects",
+  "description": "Common GRPC library",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
