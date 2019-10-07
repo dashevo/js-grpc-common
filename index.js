@@ -8,7 +8,7 @@ const createServer = require('./lib/server/createServer');
 const jsonToProtobufHandlerWrapper = require(
   './lib/server/jsonToProtobufHandlerWrapper',
 );
-const AcknowledgingWritable = require('./lib/server/AcknowledgingWritable');
+const AcknowledgingWritable = require('./lib/server/stream/AcknowledgingWritable');
 const wrapInErrorHandlerFactory = require('./lib/server/error/wrapInErrorHandlerFactory');
 
 const isObject = require('./lib/utils/isObject');
@@ -31,7 +31,9 @@ module.exports = {
   server: {
     createServer,
     jsonToProtobufHandlerWrapper,
-    AcknowledgingWritable,
+    stream: {
+      AcknowledgingWritable,
+    },
     error: {
       wrapInErrorHandlerFactory,
     },
