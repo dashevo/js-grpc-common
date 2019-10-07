@@ -12,12 +12,13 @@ const AcknowledgingWritable = require('./lib/server/AcknowledgingWritable');
 const wrapInErrorHandlerFactory = require('./lib/server/error/wrapInErrorHandlerFactory');
 
 const isObject = require('./lib/utils/isObject');
-const convertObjectToMetadata = require('./lib/utils/convertObjectToMetadata');
 
+const convertObjectToMetadata = require('./lib/convertObjectToMetadata');
 const loadPackageDefinition = require('./lib/loadPackageDefinition');
 
 module.exports = {
   loadPackageDefinition,
+  convertObjectToMetadata,
   client: {
     converters: {
       jsonToProtobufFactory,
@@ -37,6 +38,5 @@ module.exports = {
   },
   utils: {
     isObject,
-    convertObjectToMetadata,
   },
 };
