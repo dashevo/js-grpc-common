@@ -3,6 +3,9 @@ const protobufToJsonFactory = require('./lib/client/converters/protobufToJsonFac
 const jsonToProtobufInterceptorFactory = require(
   './lib/client/interceptors/jsonToProtobufInterceptorFactory',
 );
+const addMetadataInterceptor = require(
+  './lib/client/interceptors/addMetadataInterceptor',
+);
 
 const createServer = require('./lib/server/createServer');
 const jsonToProtobufHandlerWrapper = require(
@@ -34,6 +37,7 @@ module.exports = {
     },
     interceptors: {
       jsonToProtobufInterceptorFactory,
+      addMetadataInterceptor,
     },
   },
   server: {
