@@ -91,7 +91,7 @@ describe('wrapInErrorHandlerFactory', () => {
 
       const errorMessage = `${someError.message} ${errorPath.trim()}`;
       const metadata = {
-        stack: JSON.stringify(someError.stack),
+        stack: someError.stack,
       };
 
       rpcMethod.throws(someError);
