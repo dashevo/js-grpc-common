@@ -37,4 +37,25 @@ describe('GrpcError', () => {
       expect(result).to.equal(metadata);
     });
   });
+
+  describe('#setMessage', () => {
+    it('should set message', async () => {
+      metadata = {
+        stack: 'stack info',
+      };
+
+      error.setMetadata(metadata);
+
+      expect(error.getMetadata()).to.deep.equal(metadata);
+    });
+  });
+
+  describe('#setMetadata', () => {
+    it('should set metadata', async () => {
+      message = 'error message';
+      error.setMessage(message);
+
+      expect(error.getMessage()).to.equal(message);
+    });
+  });
 });
