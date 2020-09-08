@@ -15,7 +15,7 @@ describe('wrapInErrorHandlerFactory', () => {
       error: this.sinon.stub(),
     };
 
-    wrapInErrorHandler = wrapInErrorHandlerFactory(loggerMock);
+    wrapInErrorHandler = wrapInErrorHandlerFactory(loggerMock, false);
 
     rpcMethod = this.sinon.stub();
     callback = this.sinon.stub();
