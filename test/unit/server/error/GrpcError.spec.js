@@ -32,7 +32,7 @@ describe('GrpcError', () => {
 
   describe('#getMetadata', () => {
     it('should return metadata', () => {
-      const result = error.getMetadata();
+      const result = error.getRawMetadata();
 
       expect(result).to.equal(metadata);
     });
@@ -44,9 +44,9 @@ describe('GrpcError', () => {
         stack: 'stack info',
       };
 
-      error.setMetadata(metadata);
+      error.setRawMetadata(metadata);
 
-      expect(error.getMetadata()).to.deep.equal(metadata);
+      expect(error.getRawMetadata()).to.deep.equal(metadata);
     });
   });
 

@@ -80,7 +80,7 @@ describe('wrapInErrorHandlerFactory', () => {
       expect(loggerMock.error).to.be.calledOnceWith(someError);
     });
 
-    it('should return InternalGrpcError in development mode', async () => {
+    it('should return VerboseInternalGrpcError in development mode', async () => {
       wrapInErrorHandler = wrapInErrorHandlerFactory(loggerMock, false);
 
       const wrappedRpcMethod = wrapInErrorHandler(rpcMethod);
@@ -110,7 +110,7 @@ describe('wrapInErrorHandlerFactory', () => {
       expect(grpcError).to.be.instanceOf(VerboseInternalGrpcError);
       expect(grpcError.getError()).to.equal(someError);
       expect(grpcError.getMessage()).to.equal(errorMessage);
-      expect(grpcError.getMetadata()).to.deep.equal(metadata);
+      expect(grpcError.getRawMetadata()).to.deep.equal(metadata);
 
       expect(loggerMock.error).to.be.calledOnceWith(someError);
     });
