@@ -30,7 +30,7 @@ describe('GrpcError', () => {
     });
   });
 
-  describe('#getMetadata', () => {
+  describe('#getRawMetadata', () => {
     it('should return metadata', () => {
       const result = error.getRawMetadata();
 
@@ -40,6 +40,15 @@ describe('GrpcError', () => {
 
   describe('#setMessage', () => {
     it('should set message', async () => {
+      message = 'error message';
+      error.setMessage(message);
+
+      expect(error.getMessage()).to.equal(message);
+    });
+  });
+
+  describe('#setRawMetadata', () => {
+    it('should set metadata', async () => {
       metadata = {
         stack: 'stack info',
       };
@@ -47,15 +56,6 @@ describe('GrpcError', () => {
       error.setRawMetadata(metadata);
 
       expect(error.getRawMetadata()).to.deep.equal(metadata);
-    });
-  });
-
-  describe('#setMetadata', () => {
-    it('should set metadata', async () => {
-      message = 'error message';
-      error.setMessage(message);
-
-      expect(error.getMessage()).to.equal(message);
     });
   });
 });

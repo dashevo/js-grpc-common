@@ -80,7 +80,7 @@ describe('wrapInErrorHandlerFactory', () => {
       expect(loggerMock.error).to.be.calledOnceWith(someError);
     });
 
-    it('should return VerboseInternalGrpcError in development mode', async () => {
+    it('should return VerboseInternalGrpcError in development environment', async () => {
       wrapInErrorHandler = wrapInErrorHandlerFactory(loggerMock, false);
 
       const wrappedRpcMethod = wrapInErrorHandler(rpcMethod);
