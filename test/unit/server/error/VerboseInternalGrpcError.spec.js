@@ -26,9 +26,9 @@ describe('InvalidArgumentGrpcError', () => {
 
     it('should attach last line of stack if it can be extracted from original stack', () => {
       const err = new VerboseInternalGrpcError(internalError);
-      let [, errorPath] = error.stack.toString().split(/\r\n|\n/);
+      const [, errorPath] = error.stack.toString().split(/\r\n|\n/);
 
       expect(err.getMessage()).to.be.equal(`${message} ${errorPath.trim()}`);
     });
-  })
+  });
 });
