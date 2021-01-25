@@ -1,4 +1,5 @@
-const GrpcError = require('../../../../lib/server/error/GrpcError');
+const GrpcErrorCodes = require('../../../../lib/server/error/GrpcErrorCodes');
+
 const FailedPreconditionGrpcError = require('../../../../lib/server/error/FailedPreconditionGrpcError');
 
 describe('FailedPreconditionGrpcError', () => {
@@ -25,13 +26,13 @@ describe('FailedPreconditionGrpcError', () => {
     it('should return FAILED_PRECONDITION error code', () => {
       const result = error.getCode();
 
-      expect(result).to.equal(GrpcError.CODES.FAILED_PRECONDITION);
+      expect(result).to.equal(GrpcErrorCodes.FAILED_PRECONDITION);
     });
   });
 
   describe('#getMetadata', () => {
     it('should return metadata', () => {
-      const result = error.getMetadata();
+      const result = error.getRawMetadata();
 
       expect(result).to.equal(metadata);
     });

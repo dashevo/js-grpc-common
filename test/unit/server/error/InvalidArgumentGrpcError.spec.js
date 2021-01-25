@@ -1,4 +1,4 @@
-const GrpcError = require('../../../../lib/server/error/GrpcError');
+const GrpcErrorCodes = require('../../../../lib/server/error/GrpcErrorCodes');
 const InvalidArgumentGrpcError = require('../../../../lib/server/error/InvalidArgumentGrpcError');
 
 describe('InvalidArgumentGrpcError', () => {
@@ -17,7 +17,7 @@ describe('InvalidArgumentGrpcError', () => {
     it('should return message', () => {
       const result = error.getMessage();
 
-      expect(result).to.equal(`Invalid argument: ${message}`);
+      expect(result).to.equal(message);
     });
   });
 
@@ -25,13 +25,13 @@ describe('InvalidArgumentGrpcError', () => {
     it('should return INVALID_ARGUMENT error code', () => {
       const result = error.getCode();
 
-      expect(result).to.equal(GrpcError.CODES.INVALID_ARGUMENT);
+      expect(result).to.equal(GrpcErrorCodes.INVALID_ARGUMENT);
     });
   });
 
   describe('#getMetadata', () => {
     it('should return metadata', () => {
-      const result = error.getMetadata();
+      const result = error.getRawMetadata();
 
       expect(result).to.equal(metadata);
     });
