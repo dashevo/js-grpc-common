@@ -1,4 +1,4 @@
-const { Metadata } = require('grpc');
+const { Metadata } = require('@grpc/grpc-js');
 
 const convertObjectToMetadata = require('../../lib/convertObjectToMetadata');
 
