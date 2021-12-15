@@ -1,3 +1,3 @@
-# js-grpc-common
+# DEPRECATED
 
-Common JavaScript GRPC code and utils for platform projects.
+**This repository moved to https://github.com/dashevo/platform/tree/master/packages/js-grpc-common**
